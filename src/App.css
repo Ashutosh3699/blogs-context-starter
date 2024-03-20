@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.spinner {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: conic-gradient(#0000 10%,#dbdbed);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 14.1px),#000 0);
+    animation: spinner-zp9dbg 0.8s infinite linear;
+ }
+ 
+
+
+ .spinner2 {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: conic-gradient(#0000 10%,#494951);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 14.1px),#000 0);
+    animation: spinner-zp9dbg 0.8s infinite linear;
+ }
+
+ @keyframes spinner-zp9dbg {
+    to {
+       transform: rotate(1turn);
+    }
+ }
+ 
