@@ -11,7 +11,7 @@ import { useEffect } from "react";
 export default function App() {
 
   const {fetchInfo} = useContext(AppContext);
-  const [searchParams , setSearchParams ] = useSearchParams();
+  const [searchParams  ] = useSearchParams();
   const location = useLocation();
 
   useEffect(()=>{
@@ -33,7 +33,7 @@ export default function App() {
     else{
       fetchInfo(Number(page));
     }
-  },[location.pathname, location.search]);
+  },[location.pathname, location.search,fetchInfo,searchParams]);
 
   return (
 

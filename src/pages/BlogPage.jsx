@@ -9,6 +9,7 @@ import HeaderText from '../components/HeaderText';
 import CardContent from '../components/CardContent';
 import { CiLight } from "react-icons/ci";
 import { CiDark } from "react-icons/ci";
+import { useCallback } from 'react';
 
 const BlogPage = () => {
 
@@ -20,7 +21,7 @@ const BlogPage = () => {
 
   const blogId =  location.pathname.split("/").at(-1).replaceAll("-"," ");
 
-  async function fetchBlogData(){
+ const fetchBlogData= useCallback(async  ()=>{
 
     setLoading(true);
     const url = `https://codehelp-apis.vercel.app/api/get-blog?blogId=${blogId}`;
@@ -40,7 +41,7 @@ const BlogPage = () => {
     }
 
     setLoading(false);
-  }
+  },[blogId,setLoading])
 
   console.log(blogs);
 
@@ -49,7 +50,7 @@ const BlogPage = () => {
     if(blogId ){
       fetchBlogData();
     }
-  },[location.pathname]);
+  },[location.pathname,fetchBlogData,blogId]);
 
 
 

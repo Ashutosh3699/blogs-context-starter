@@ -1,6 +1,7 @@
 import React, {  createContext, useState } from 'react';
 import { baseUrl } from '../baseUrl';
 import {useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 
 export const AppContext = createContext();
 
@@ -16,7 +17,7 @@ const AppContextProvider = ({children}) => {
 
 
 
-    const fetchInfo = async (page = 1, tag=null, category)=>{
+    const fetchInfo =useCallback( async (page = 1, tag=null, category)=>{
 
         setLoading(true);
         let url = `${baseUrl}?page=${page}`;
@@ -51,7 +52,7 @@ const AppContextProvider = ({children}) => {
         }
 
         setLoading(false);
-    }
+    },[]);
 
     function handleChange(page){
 
